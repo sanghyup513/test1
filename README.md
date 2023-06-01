@@ -29,4 +29,13 @@ systemctl restart kubelet
 ### Mkaster 서버 CERT 인증서 갱신 확인
 kubeadm certs check-expiration
 
-### 
+### Mkaster 서버 CERT 인증서 갱신 
+kubeadm certs  renew all
+
+### restart the kube-apiserver, kube-controller-manager, kube-scheduler 
+
+### admin.conf 확인
+
+### node-exporter admin,conf 확인
+
+## CSR bfadmin 계정 확인
