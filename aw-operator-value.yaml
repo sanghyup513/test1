@@ -1,0 +1,28 @@
+AWX:
+  # enable use of awx-deploy template
+  enabled: true
+  name: awx
+  spec:
+    admin_user: admin
+    admin_password_secret: my-admin-password
+    ingress_type: Ingress
+    hostname: awx.test.com
+    ingress_annotations: |
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  postgres:
+    enabled: false
+
+customSecrets:
+  enabled: true
+  admin:
+    enabled: true
+    password: admin
+    secretName: my-admin-password
+
+postgres:
+  enabled: true  # PostgreSQL 활성화
+  persistence:
+    enabled: true
+    storageClass: local-path  # StorageClass 이름
+    size: 10Gi  # PV 용량
